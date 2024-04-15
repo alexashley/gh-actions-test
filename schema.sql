@@ -1,1 +1,1 @@
-CREATE TABLE foo;
+CREATE TABLE foo(name varchar(20));
