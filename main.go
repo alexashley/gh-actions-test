@@ -34,7 +34,7 @@ func main() {
 		log.Fatalln("error creating model database", err)
 	}
 
-	query, err := db.Query("SELECT * FROM pg_catalog.pg_tables;")
+	query, err := db.Query("SELECT tablename FROM pg_catalog.pg_tables;")
 	if err != nil {
 		log.Fatalln("error executing schema query", err)
 	}
@@ -44,7 +44,7 @@ func main() {
 		if err = query.Scan(&row); err != nil {
 			log.Fatalln("error scanning row", err)
 		}
-		fmt.Println("row", row)
+		fmt.Println("tableName", row)
 	}
 
 	databases := []string{"abc", "foo", "baz"}
