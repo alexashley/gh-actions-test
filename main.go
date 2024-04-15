@@ -24,7 +24,7 @@ func main() {
 	schema, err := io.ReadAll(file)
 	password := os.Getenv("POSTGRES_PASSWORD")
 
-	db, err := sql.Open("postgres", fmt.Sprintf("password=%s", password))
+	db, err := sql.Open("postgres", fmt.Sprintf("password=%s sslmode=disable", password))
 	if err != nil {
 		log.Fatalln("error opening db connection", err)
 	}
